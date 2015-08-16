@@ -16,9 +16,11 @@
         .comment    { padding-bottom:20px; }
     </style>
 
-    <!-- js and angular-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+    <!-- angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript"  src="/public/js/app.js"></script>
+    <script type="text/javascript"  src="/public/js/controllers/mainCtrl.js"></script>
+    <script type="text/javascript" src="/public/js/services/commentService.js"></script>
 </head>
 
 <!-- declaring our angular app, controller and container -->
@@ -31,7 +33,7 @@
         </div>
 
         <!-- Form -->
-        <form ng-submit="submitComment()">
+        <form name="newCommentForm" ng-submit="submitComment()">
 
             <!--Author-->
             <div class="form-group">
@@ -41,15 +43,20 @@
 
             <!-- Text -->
             <div class="form-group">
-                <input type="text" class="form-control input-lg" name="comment"
-                       ng-model="commentData.text" placeholder="Say what you have to say">
+                <input type="text" class="form-control input-lg" name="Speak now or forever hold your peace"
+                       ng-model="commentData.text" placeholder="Speak now or forever hold your peace">
             </div>
 
             <!-- Submit Feature -->
             <div class="form-group text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg"
+                        ng-disabled="newCommentForm.$invalid">Submit</button>
             </div>
         </form>
+
+          <pre>
+         {{ commentData }}
+          </pre>
 
         <!-- Loading Icon. Will show if loading variable is true-->
         <p class="text-center" ng-show="loading">
@@ -63,7 +70,9 @@
 
             <p><a href="#" ng-click="deleteComment(comment.id)" class="text-muted">Delete</a></p>
         </div>
-
     </div>
+
+
+
 </body>
 </html>

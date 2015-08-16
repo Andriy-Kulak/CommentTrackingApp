@@ -2,4 +2,10 @@
  * Created by Andriy3x1000 on 8/15/15.
  */
 
-var commentApp = angular.module('commentApp', ['mainCtrl' , 'commentService']);
+angular.module('CommentApp', [
+	'controllers',
+	'services'
+]);
+
+angular.module('controllers' []);
+angular.module('services', []);

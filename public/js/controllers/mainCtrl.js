@@ -1,14 +1,13 @@
 /**
  * Created by Andriy3x1000 on 8/15/15.
  */
-namespace mainController;
 
-angular.module('mainCtrl', [])
+var Controller = angular.module('controller');
 
 /**
  * injecting the Comment service into our controller
  */
-	.controller('mainController', function($scope, $http, Comment) {
+	Controller.controller('mainController', function($scope, $http, Comment) {
 		// object will hold all data for comment form
 		$scope.commentData = {};
 
@@ -49,7 +48,7 @@ angular.module('mainCtrl', [])
 		};
 
 		/**
-		 * Delete Comment
+		 * Delete Comment function
 		 * @param id
 		 */
 		$scope.deleteComment = function(id) {

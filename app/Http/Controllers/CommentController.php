@@ -2,8 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Comment;
-use Response;
+use App\Models\Comment;
 
 use Illuminate\Http\Request;
 
@@ -16,15 +15,21 @@ class CommentController extends Controller {
 	 */
 	public function index()
 	{
-		return Response::json(Comment::get());
+		return response()->json(Comment::get());
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Return the specified resource using json
 	 *
 	 * @return Response
 	 */
+	public function show($id) {
+		return response()->json( Comment::find($id) );
+	}
 
+	/**
+	 * Store new comment
+	 */
 	public function store()
 	{
 		Comment::create(array(
@@ -32,7 +37,7 @@ class CommentController extends Controller {
 			'text' => Input::get('text')
 		));
 
-		return Response::json(array('success' => true));
+		return response()->json(['success' => true]);
 	}
 
 	/**
@@ -45,8 +50,7 @@ class CommentController extends Controller {
 	public function destroy($id)
 	{
 		Comment::destroy($id);
-
-		return Response::json(array('success' => true));
+		return response()->json(['success' => true]);
 	}
 
 }
