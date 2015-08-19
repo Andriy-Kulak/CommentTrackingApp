@@ -1,13 +1,11 @@
-/**
- * Created by Andriy3x1000 on 8/15/15.
- */
-
-var Controller = angular.module('controller');
+angular.module('mainCtrl', [])
 
 /**
  * injecting the Comment service into our controller
  */
-	Controller.controller('mainController', function($scope, $http, Comment) {
+
+
+	controller('mainController', function($scope, $http, Comment) {
 		// object will hold all data for comment form
 		$scope.commentData = {};
 
