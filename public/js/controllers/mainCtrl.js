@@ -5,7 +5,7 @@ angular.module('mainCtrl', [])
  */
 
 
-	controller('mainController', function($scope, $http, Comment) {
+	.controller('mainController', function($scope, $http, Comment) {
 		// object will hold all data for comment form
 		$scope.commentData = {};
 
